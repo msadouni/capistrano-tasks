@@ -1,0 +1,5 @@
+Various Capistrano tasks :
+
+cap symlink:database        # Creates a symlink to a shared/config/database.yml file
+cap symlink:public_files    # Creates a symlink to non-versionned public files
+cap misc:clear_cached_copy  # Clears git cached-copy, run before deploy when a submodule plugin changed
