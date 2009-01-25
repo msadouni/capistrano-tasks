@@ -1,4 +1,4 @@
-Capistrano.configuration(:must_exist).load do
+Capistrano::Configuration.instance(:must_exist).load do
   
   namespace :symlink do
     desc "Creates a symlink to a shared/config/database.yml file"
@@ -22,7 +22,7 @@ Capistrano.configuration(:must_exist).load do
     end
   end
   
-  namespace :misc
+  namespace :misc do
     desc "Clears git cached-copy, run before deploy when a submodule plugin changed"
     task :clear_cached_copy do
       run <<-CMD
