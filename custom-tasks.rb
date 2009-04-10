@@ -20,6 +20,13 @@ Capistrano::Configuration.instance(:must_exist).load do
         ln -nfs #{shared_path}/public/robots.txt #{release_path}/public/robots.txt
       CMD
     end
+
+    desc "Creates a symlink to a shared/config/initializers/site_keys.rb for restful_authentication"
+    task :site_keys, :roles => :app do
+      run <<-CMD
+        ln -nfs #{shared_path}/config/initializers/site_keys.rb #{release_path}/config/initializers/site_keys.rb
+      CMD
+    end
   end
   
   namespace :misc do
