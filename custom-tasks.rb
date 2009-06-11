@@ -27,6 +27,13 @@ Capistrano::Configuration.instance(:must_exist).load do
         ln -nfs #{shared_path}/config/initializers/site_keys.rb #{release_path}/config/initializers/site_keys.rb
       CMD
     end
+
+    desc "Creates a symlink to a shared/config/initializers/paperclip.rb for Paperclip configuration (path etc)"
+    task :paperclip, :roles => :app do
+      run <<-CMD
+        ln -nfs #{shared_path}/config/initializers/paperclip.rb #{release_path}/config/initializers/paperclip.rb
+      CMD
+    end
   end
   
   namespace :misc do
