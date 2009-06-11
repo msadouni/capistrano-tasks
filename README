@@ -4,3 +4,4 @@ cap symlink:database        # Creates a symlink to a shared/config/database.yml 
 cap symlink:public_files    # Creates a symlink to non-versionned public files
 cap misc:clear_cached_copy  # Clears git cached-copy, run before deploy when a submodule plugin changed
 cap symlink:site_keys       # Creates a symlink to a shared/config/initializers/site_keys.rb for restful_authentication
+cap symlink:paperclip       # Creates a symlink to a shared/config/initializers/paperclip.rb for Paperclip configuration (path etc)
