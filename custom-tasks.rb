@@ -21,6 +21,13 @@ Capistrano::Configuration.instance(:must_exist).load do
       CMD
     end
 
+    desc "Creates a symlink to non-versionned public avatars"
+    task :public_avatars, :roles => :app do
+      run <<-CMD
+        ln -nfs #{shared_path}/public/images/avatar #{release_path}/public/images/avatar
+      CMD
+    end
+
     desc "Creates a symlink to a shared/config/initializers/site_keys.rb for restful_authentication"
     task :site_keys, :roles => :app do
       run <<-CMD
