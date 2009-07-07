@@ -2,6 +2,7 @@ Various Capistrano tasks :
 
 cap symlink:database        # Creates a symlink to a shared/config/database.yml file
 cap symlink:public_files    # Creates a symlink to non-versionned public files
+cap symplink:private_files  # Creates a symlink to non-versionned private files
 cap symlink:publi_avatars   # Creates a symlink to non-versionned public avatars
 cap misc:clear_cached_copy  # Clears git cached-copy, run before deploy when a submodule plugin changed
 cap symlink:site_keys       # Creates a symlink to a shared/config/initializers/site_keys.rb for restful_authentication

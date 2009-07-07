@@ -21,6 +21,13 @@ Capistrano::Configuration.instance(:must_exist).load do
       CMD
     end
 
+    desc "Creates a symlink to non-versionned private files"
+    task :private_files, :roles => :app do
+      run <<-CMD
+        ln -nfs #{shared_path}/files #{release_path}/files
+      CMD
+    end
+
     desc "Creates a symlink to non-versionned public avatars"
     task :public_avatars, :roles => :app do
       run <<-CMD
