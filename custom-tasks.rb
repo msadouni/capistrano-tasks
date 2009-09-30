@@ -48,6 +48,13 @@ Capistrano::Configuration.instance(:must_exist).load do
         ln -nfs #{shared_path}/config/initializers/paperclip.rb #{release_path}/config/initializers/paperclip.rb
       CMD
     end
+
+    desc "Creates a symlink to a shared/config/environments/<stage>.rb when using multistage"
+    task :environment, :roles => :app do
+      run <<-CMD
+        ln -nfs #{shared_path}/config/environments/#{stage}.rb #{release_path}/config/environments/#{stage}.rb
+      CMD
+    end
   end
   
   namespace :misc do
