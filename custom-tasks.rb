@@ -62,7 +62,14 @@ Capistrano::Configuration.instance(:must_exist).load do
       CMD
     end
   end
-  
+
+  desc "Creates a symlink to a shared/config/application.yml when using SettingsLogic"
+  task :settings, :roles => :app do
+    run <<-CMD
+      ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml
+    CMD
+  end
+
   namespace :misc do
     desc "Clears git cached-copy, run before deploy when a submodule plugin changed"
     task :clear_cached_copy do
