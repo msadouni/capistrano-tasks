@@ -61,13 +61,14 @@ Capistrano::Configuration.instance(:must_exist).load do
         ln -nfs #{shared_path}/config/environments/#{stage}.rb #{release_path}/config/environments/#{stage}.rb
       CMD
     end
-  end
 
-  desc "Creates a symlink to a shared/config/application.yml when using SettingsLogic"
-  task :settings, :roles => :app do
-    run <<-CMD
-      ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml
-    CMD
+    desc "Creates a symlink to a shared/config/application.yml when using SettingsLogic"
+    task :settings, :roles => :app do
+      run <<-CMD
+        ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml
+      CMD
+    end
+
   end
 
   namespace :misc do
