@@ -19,6 +19,12 @@ Capistrano::Configuration.instance(:must_exist).load do
       run <<-CMD
         ln -nfs #{shared_path}/public/robots.txt #{release_path}/public/robots.txt
       CMD
+      run <<-CMD
+        ln -nfs #{shared_path}/public/dispatch.fcgi #{release_path}/public/dispatch.fcgi
+      CMD
+      run <<-CMD
+        ln -nfs #{shared_path}/public/.htaccess #{release_path}/public/.htaccess
+      CMD
     end
 
     desc "Creates a symlink to non-versionned private files"
